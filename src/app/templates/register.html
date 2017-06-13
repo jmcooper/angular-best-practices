@@ -1,0 +1,29 @@
+<div>
+  <h2 class="header">Register</h2>
+  <form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
+    <div class="form-group" [ngClass]="{ 'error' : firstName.invalid && firstName.dirty }">
+      <label for="firstName">First Name:</label>
+      <em *ngIf="firstName.invalid && firstName.dirty">Required</em>
+      <input formControlName="firstName" id="firstName" type="text" placeholder="First Name..." />
+    </div>
+    <div class="form-group" [ngClass]="{ 'error' : lastName.invalid && lastName.dirty }">
+      <label for="lastName">Last Name:</label>
+      <em *ngIf="lastName.invalid && lastName.dirty">Required</em>
+      <input formControlName="lastName" id="lastName" type="text" placeholder="Last Name..." />
+    </div>
+    <div class="form-group" [ngClass]="{ 'error' : email.invalid && email.dirty }">
+      <label for="email">Email:</label>
+      <em *ngIf="email.invalid && email.dirty">Required</em>
+      <input formControlName="email" id="email" type="text" placeholder="Email..." />
+    </div>
+    <div class="form-group" [ngClass]="{ 'error' : password.invalid && password.dirty }">
+      <label for="password">Password:</label>
+      <em *ngIf="password.invalid && password.dirty">Required</em>
+      <input formControlName="password" id="password" type="password" placeholder="Password..." />
+    </div>
+    <div class="form-group" >
+      <button type="button" (click)="cancel()">Cancel</button>
+      <button class="save" type="submit" [disabled]="registerForm.invalid">Save</button>
+    </div>
+  </form>
+</div>

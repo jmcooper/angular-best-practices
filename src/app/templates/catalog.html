@@ -1,0 +1,36 @@
+<div class="departments">
+  <button (click)="applyFilter('CH')">Charms</button>
+  <button (click)="applyFilter('PO')">Potions</button>
+  <button (click)="applyFilter('SP')">Spells</button>
+  <button (click)="applyFilter('GEN')">Generals</button>
+  <button (click)="applyFilter('')">All</button>
+</div>
+<div>
+  <table>
+    <thead>
+      <th>Course #</th>
+      <th>Course Name</th>
+      <th>Professor</th>
+      <th>Days</th>
+      <th>Time</th>
+      <th class="center">Credits</th>
+      <th class="center">Enroll/Drop</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let class of visibleClasses">
+        <td><a [routerLink]="['/catalog/' + class.course.courseNumber]">{{class.course.courseNumber}}</a></td>
+        <td><a [routerLink]="['/catalog/' + class.course.courseNumber]">{{class.course.courseName}}</a></td>
+        <td>{{class.professor}}</td>
+        <td>{{class.days}}</td>
+        <td>{{class.time}}</td>
+        <td class="center">{{class.course.creditHours}}</td>
+        <td class="enroll center">
+          <button class="sign-in" *ngIf="!userRepository.currentUser" disabled>Sign In to Enroll</button>
+          <button *ngIf="userRepository.currentUser && !class.enrolled && !class.processing" (click)="enroll(class)">Enroll</button>
+          <button *ngIf="userRepository.currentUser && class.enrolled && !class.processing" (click)="drop(class)">Drop</button>
+          <img *ngIf="class.processing" src="app/images/loading.gif" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
