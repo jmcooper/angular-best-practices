@@ -32,7 +32,12 @@ export class SignInComponent {
   constructor(private router:Router, private userRepository:UserRepositoryService) { }
 
   signIn(credentials) {
-    this.userRepository.signIn(credentials).subscribe(() => this.router.navigate(['/catalog']))
+    this.userRepository.signIn(credentials)
+      .subscribe(
+        null,
+        (err) => {console.error(err, 'Error')},
+        () => this.router.navigate(['/catalog'])
+      )
   }
 
   cancel() {

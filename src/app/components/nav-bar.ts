@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { UserRepositoryService } from "../services/user-repository";
-  
+
 @Component({
   selector: 'nav-bar',
   styleUrls: [`../styles/nav-bar.css`],
@@ -28,10 +28,6 @@ export class NavBarComponent  {
   showMenu:boolean;
 
   constructor(private userRepository:UserRepositoryService) {}
-
-  ngOnInit() {
-    this.userRepository.getCurrentUser().subscribe();
-  }
 
   signOut() {
 

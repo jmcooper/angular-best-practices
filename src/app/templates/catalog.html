@@ -28,7 +28,7 @@
           <button class="sign-in" *ngIf="!userRepository.currentUser" disabled>Sign In to Enroll</button>
           <button *ngIf="userRepository.currentUser && !class.enrolled && !class.processing" (click)="enroll(class)">Enroll</button>
           <button *ngIf="userRepository.currentUser && class.enrolled && !class.processing" (click)="drop(class)">Drop</button>
-          <img *ngIf="class.processing" src="app/images/loading.gif" />
+          <img *ngIf="class.processing" src="/assets/images/loading.gif" />
         </td>
       </tr>
     </tbody>

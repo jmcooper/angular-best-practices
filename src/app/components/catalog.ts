@@ -22,16 +22,20 @@ export class CatalogComponent {
     classToEnroll.processing = true;
     this.userRepository.enroll(classToEnroll.classId)
       .subscribe(
+        null,
+        (err) => {console.error(err); classToEnroll.processing = false}, //add a toast message or something
         () => {classToEnroll.processing = false; classToEnroll.enrolled=true;},
-        (err) => classToEnroll.processing = false); //add a toast message or something
+      );
   }
 
   drop(classToDrop) {
     classToDrop.processing = true;
     this.userRepository.drop(classToDrop.classId)
       .subscribe(
-        () => {classToDrop.processing = false; classToDrop.enrolled=false;},
-        (err) => classToDrop.processing = false); //add a toast message or something
+        null,
+        (err) => { console.error(err); classToDrop.processing = false}, //add a toast message or something
+        () => {classToDrop.processing = false; classToDrop.enrolled=false;}
+      );
   }
 
   private applyFilter(filter) {
