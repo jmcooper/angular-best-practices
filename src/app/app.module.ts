@@ -8,7 +8,7 @@ import { appRoutes } from './routes'
 import { AppComponent }  from './components/app';
 import { NavBarComponent }  from './components/nav-bar';
 import { CatalogComponent } from "./components/catalog";
-import { RegisterComponent } from "./components/register";
+import { RegisterComponent } from "./components/sign-in";
 import { SignInComponent } from "./components/sign-in";
 import { CatalogRepositoryService } from "./services/catalog-repository"
 import { UserRepositoryService } from './services/user-repository'
