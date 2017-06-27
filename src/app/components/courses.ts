@@ -7,7 +7,7 @@ import { UserRepositoryService } from "../services/user-repository";
   styleUrls: ['../styles/catalog.css'],
   templateUrl: '../templates/catalog.html'
 })
-export class CatalogComponent {
+export class CoursesComponent {
   classes:any[];
   visibleClasses:any[];
 
