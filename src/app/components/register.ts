@@ -32,7 +32,7 @@ export class RegisterComponent {
   }
 
   registerUser(user) {
-    this.userRepository.save(user).subscribe(() => this.router.navigate(['/catalog']))
+    this.userRepository.save(user).subscribe(null, null, () => this.router.navigate(['/catalog']))
   }
 
   cancel() {

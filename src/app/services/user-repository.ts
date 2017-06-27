@@ -9,12 +9,9 @@ export class UserRepositoryService {
   constructor() {}
 
   save(user): Observable<any> {
-    this.currentUser = Object.assign({}, user);
+    this.currentUser = Object.assign({}, user, {classes: []});
 
-    let subject = new Subject<any>();
-    subject.next(this.currentUser);
-    subject.complete();
-    return subject;
+    return Observable.empty().delay(1000);
   }
 
   enroll(classId): Observable<any> {
