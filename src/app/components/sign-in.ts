@@ -55,6 +55,7 @@ export class RegisterComponent {
   lastName: FormControl;
   email: FormControl;
   password: FormControl;
+  saving:boolean=false;
 
   constructor(private router:Router, private userRepository:UserRepositoryService) { }
 
@@ -69,14 +70,19 @@ export class RegisterComponent {
       lastName: this.lastName,
       email: this.email,
       password: this.password
-    })
+    });
   }
 
   registerUser(user) {
-    this.userRepository.save(user).subscribe(null, null, () => this.router.navigate(['/catalog']))
+    this.saving=true;
+    this.userRepository.save(user)
+      .subscribe(
+        null,
+        ()=>this.saving=false,
+        () => this.router.navigate(['/catalog']));
   }
 
   cancel() {
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
   }
 }

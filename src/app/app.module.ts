@@ -10,6 +10,7 @@ import { NavBarComponent }  from './components/nav-bar';
 import { CoursesComponent } from "./components/courses";
 import { RegisterComponent } from "./components/sign-in";
 import { SignInComponent } from "./components/sign-in";
+import { LoadingSpinnerComponent } from "./components/loading-spinner";
 import { CatalogRepositoryService } from "./services/catalog-repository"
 import { UserRepositoryService } from './services/user-repository'
 
@@ -26,7 +27,8 @@ import { UserRepositoryService } from './services/user-repository'
     NavBarComponent,
     CoursesComponent,
     RegisterComponent,
-    SignInComponent
+    SignInComponent,
+    LoadingSpinnerComponent
   ],
   providers: [ CatalogRepositoryService, UserRepositoryService ],
   bootstrap:    [ AppComponent ]

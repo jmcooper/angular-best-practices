@@ -22,8 +22,9 @@
       <input formControlName="password" id="password" type="password" placeholder="Password..." />
     </div>
     <div class="form-group" >
-      <button type="button" (click)="cancel()">Cancel</button>
-      <button class="save" type="submit" [disabled]="registerForm.invalid">Save</button>
+      <button type="button" (click)="cancel()" *ngIf="!saving">Cancel</button>
+      <button class="save" type="submit" *ngIf="!saving" [disabled]="registerForm.invalid">Save</button>
+      <loading-spinner [loading]="saving"></loading-spinner>
     </div>
   </form>
 </div>
