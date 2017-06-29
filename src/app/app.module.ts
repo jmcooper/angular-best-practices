@@ -11,8 +11,7 @@ import { CoursesComponent } from "./components/courses";
 import { RegisterComponent } from "./components/sign-in";
 import { SignInComponent } from "./components/sign-in";
 import { LoadingSpinnerComponent } from "./components/loading-spinner";
-import { CatalogRepositoryService } from "./services/catalog-repository"
-import { UserRepositoryService } from './services/user-repository'
+import { DataRepositoryService } from "./services/data-repository"
 
 @NgModule({
   imports:      [
@@ -30,7 +29,7 @@ import { UserRepositoryService } from './services/user-repository'
     SignInComponent,
     LoadingSpinnerComponent
   ],
-  providers: [ CatalogRepositoryService, UserRepositoryService ],
+  providers: [ DataRepositoryService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
