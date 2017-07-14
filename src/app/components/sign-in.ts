@@ -5,7 +5,51 @@ import { Router } from '@angular/router'
 import { DataRepositoryService } from '../services/data-repository'
 
 @Component({
-  styleUrls: ['../styles/sign-in.css'],
+  styles: [`
+    form {
+      color: #336699;
+      font-size:18px;
+      padding:30px;
+      width: 298px;
+      margin: 0 auto;
+    }
+    input {
+      display: block;
+      font-size:18px;
+      padding-left:10px;
+      width: 275px;
+    }
+    button {
+      font-size: 24px;
+      color: #556b8e;
+    }
+    button:disabled {
+      color: #999999;
+    }
+    .header {
+      color: #336699;
+      text-align:center;
+      padding-top:20px;
+      margin-top:0;
+    }
+    .form-group {
+      margin: 10px;
+    }
+    .buttons {
+      text-align: right;
+      margin-right: 0px;
+    }
+    .save {
+      background-color: #CCDDFF;
+      border-color: #CCDDFF;
+    }
+    em {float:right; color:#E05C65; padding-left:10px;}
+    .error input, .error select, .error textarea {background-color:#E3C3C5;}
+    .error ::-webkit-input-placeholder { color: #999; }
+    .error :-moz-placeholder { color: #999; }
+    .error ::-moz-placeholder { color: #999; }
+    .error :ms-input-placeholder  { color: #999; }
+  `],
   template: `
     <div>
       <h2 class="header">Sign In</h2>
@@ -13,12 +57,12 @@ import { DataRepositoryService } from '../services/data-repository'
         <div class="form-group" [ngClass]="{ 'error' : signInForm.controls.email?.invalid && signInForm.controls.email?.dirty }">
           <label for="email">Email:</label>
           <em *ngIf="signInForm.controls.email?.invalid && signInForm.controls.email?.dirty">Required</em>
-          <input [(ngModel)]="signIn.email" required name="email" id="email" type="text" placeholder="Email..." />
+          <input [(ngModel)]="credentials.email" required name="email" id="email" type="text" placeholder="Email..." />
         </div>
         <div class="form-group" [ngClass]="{ 'error' : signInForm.controls.password?.invalid && signInForm.controls.password?.dirty }">
           <label for="password">Password:</label>
           <em *ngIf="signInForm.controls.password?.invalid && signInForm.controls.password?.dirty">Required</em>
-          <input [(ngModel)]="signIn.password" required name="password" id="password" type="password" placeholder="Password..." />
+          <input [(ngModel)]="credentials.password" required name="password" id="password" type="password" placeholder="Password..." />
         </div>
         <div class="form-group buttons" >
           <button type="button" (click)="cancel()">Cancel</button>
@@ -29,9 +73,11 @@ import { DataRepositoryService } from '../services/data-repository'
   `
 })
 export class SignInComponent {
+  credentials:any = {};
+
   constructor(private router:Router, private dataRepository:DataRepositoryService) { }
 
-  signIn(credentials) {
+  signIn(credentials:any) {
     this.dataRepository.signIn(credentials)
       .subscribe(
         null,

@@ -37,7 +37,7 @@ export class CoursesComponent {
       );
   }
 
-  private applyFilter(filter) {
+  applyFilter(filter) {
     if (!filter)
       return this.visibleClasses = this.classes;
 

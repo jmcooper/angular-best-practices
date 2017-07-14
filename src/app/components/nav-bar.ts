@@ -9,27 +9,19 @@ import { DataRepositoryService } from "../services/data-repository";
     <div class="nav-bar">
       <img class="logo" src="/assets/images/whitebeard-logo.png" alt="Whitebeard Logo" />
       <div class="nav-item"><a [routerLink]="['/catalog']">Catalog</a></div>
-      <div class="nav-item" *ngIf="user"><a href="#">Schedule</a></div>
-      <div class="account">
-        <span class="welcome" *ngIf="dataRepository.currentUser">
-          <a (click)="showMenu=!showMenu">
-            Welcome {{dataRepository.currentUser?.firstName}}
-            <span class="chevron">&#8964;</span>
-          </a>
-          <div class="menu" *ngIf="showMenu" (click)="signOut()">Sign Out</div>
-        </span>
-        <span *ngIf="!dataRepository.currentUser"><a [routerLink]="['/users/sign-in']">Sign In</a></span>
-        <span *ngIf="!dataRepository.currentUser"><a [routerLink]="['/users/register']">Register</a></span>
-      </div>
+      <account-menu [user]="currentUser" (signedOut)="handleSignOut()"></account-menu>
     </div>
 `
 })
-export class NavBarComponent  {
-  showMenu:boolean;
 
+export class NavBarComponent  {
   constructor(private dataRepository:DataRepositoryService) {}
 
-  signOut() {
+  get currentUser() {
+    return this.dataRepository.currentUser;
+  }
 
+  handleSignOut() {
+    this.dataRepository.currentUser = null;
   }
 }

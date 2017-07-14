@@ -1,0 +1,30 @@
+:host {
+  font-size: 20px;
+  flex-grow: 1;
+  text-align: right;
+  padding-right: 30px;
+}
+.account span {
+  padding-left: 20px;
+}
+.account .chevron {
+  position: relative;
+  top: -3px;
+  font-size: 22px;
+  padding-left: 5px;
+}
+.welcome {
+  position:relative;
+  cursor: pointer;
+}
+.menu {
+  position: absolute;
+  background-color: white;
+  padding: 8px;
+  color: #556b8e;
+  top: 28px;
+  right:5px;
+  font-size: 20px;
+  border: 1px solid #CCDDFF;
+  cursor: pointer;
+}

@@ -1,9 +1,10 @@
-import {Component, Input} from '@angular/core'
+import {Component} from '@angular/core'
 
 @Component({
   selector: 'loading-spinner',
-  template: '<img *ngIf="loading" src="../../assets/images/loading.gif" />'
+  template: '<img *ngIf="loading" src="../../assets/images/loading.gif" />',
+  inputs: ['loading']
 })
-export class LoadingSpinnerComponent {
-  @Input() loading:boolean
+export class LoadingComponent {
+  loading:boolean
 }

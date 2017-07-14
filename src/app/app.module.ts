@@ -10,8 +10,9 @@ import { NavBarComponent }  from './components/nav-bar';
 import { CoursesComponent } from "./components/courses";
 import { RegisterComponent } from "./components/sign-in";
 import { SignInComponent } from "./components/sign-in";
-import { LoadingSpinnerComponent } from "./components/loading-spinner";
+import { LoadingComponent } from "./components/loading-spinner";
 import { DataRepositoryService } from "./services/data-repository"
+import { AccountMenuComponent } from "./components/account-menu";
 
 @NgModule({
   imports:      [
@@ -27,7 +28,8 @@ import { DataRepositoryService } from "./services/data-repository"
     CoursesComponent,
     RegisterComponent,
     SignInComponent,
-    LoadingSpinnerComponent
+    LoadingComponent,
+    AccountMenuComponent
   ],
   providers: [ DataRepositoryService ],
   bootstrap:    [ AppComponent ]
