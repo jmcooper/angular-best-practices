@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-import { DataRepositoryService } from "../services/data-repository.service"
+import { DataRepositoryService } from "../services/data-repository"
 
 @Component({
-  styleUrls: ['./catalog.component.css'],
-  templateUrl: './catalog.component.html'
+  styleUrls: ['../styles/catalog.css'],
+  templateUrl: '../templates/catalog.html'
 })
-export class CatalogComponent {
+export class CoursesComponent {
   classes:any[];
   visibleClasses:any[];
 
