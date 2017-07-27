@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
-import { DataRepositoryService } from "../services/data-repository";
+import { DataRepositoryService } from "./services/data-repository.service";
 
 @Component({
   selector: 'nav-bar',
-  styleUrls: [`../styles/nav-bar.css`],
+  styleUrls: [`./nav-bar.component.css`],
   template: `
     <div class="nav-bar">
       <img class="logo" src="/assets/images/whitebeard-logo.png" alt="Whitebeard Logo" />

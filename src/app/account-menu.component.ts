@@ -2,7 +2,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'account-menu',
-  styleUrls: ['../styles/account-menu.css'],
+  styleUrls: ['./account-menu.component.css'],
   template: `
     <div class="account">
       <span class="welcome" *ngIf="user">
