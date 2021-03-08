@@ -18,8 +18,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let class of visibleClasses">
-        <td><a [routerLink]="['/catalog/' + class.course.courseNumber]">{{class.course.courseNumber}}</a></td>
-        <td><a [routerLink]="['/catalog/' + class.course.courseNumber]">{{class.course.courseName}}</a></td>
+        <td>{{class.course.courseNumber}}</td>
+        <td>{{class.course.courseName}}</td>
         <td>{{class.professor}}</td>
         <td>{{class.days}}</td>
         <td>{{class.time}}</td>
