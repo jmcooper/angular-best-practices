@@ -32,7 +32,7 @@ export class DataRepositoryService {
     if (!this.currentUser)
       return Observable.throw('User not signed in');
 
-    if (this.currentUser.classes.includes[classId])
+    if (this.currentUser.classes.includes(classId))
       return Observable.throw('Already enrolled');
 
     this.currentUser.classes.push(classId);
