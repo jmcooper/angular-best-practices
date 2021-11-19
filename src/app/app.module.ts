@@ -1,7 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 import { appRoutes } from './routes'
@@ -17,7 +16,6 @@ import { AccountMenuComponent } from "./components/account-menu";
 @NgModule({
   imports:      [
     BrowserModule,
-    HttpModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)

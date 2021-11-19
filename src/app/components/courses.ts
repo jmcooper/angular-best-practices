@@ -10,7 +10,7 @@ export class CoursesComponent {
   classes:any[];
   visibleClasses:any[];
 
-  constructor(private dataRepository:DataRepositoryService) {}
+  constructor(public dataRepository:DataRepositoryService) {}
 
   ngOnInit() {
     this.dataRepository.getCatalog()

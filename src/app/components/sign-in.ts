@@ -54,14 +54,14 @@ import { DataRepositoryService } from '../services/data-repository'
     <div>
       <h2 class="header">Sign In</h2>
       <form #signInForm="ngForm" (ngSubmit)="signIn(signInForm.value)" autocomplete="off" novalidate>
-        <div class="form-group" [ngClass]="{ 'error' : signInForm.controls.email?.invalid && signInForm.controls.email?.dirty }">
+        <div class="form-group" [ngClass]="{ 'error' : signInForm.controls['email']?.invalid && signInForm.controls['email']?.dirty }">
           <label for="email">Email:</label>
-          <em *ngIf="signInForm.controls.email?.invalid && signInForm.controls.email?.dirty">Required</em>
+          <em *ngIf="signInForm.controls['email']?.invalid && signInForm.controls['email']?.dirty">Required</em>
           <input [(ngModel)]="credentials.email" required name="email" id="email" type="text" placeholder="Email..." />
         </div>
-        <div class="form-group" [ngClass]="{ 'error' : signInForm.controls.password?.invalid && signInForm.controls.password?.dirty }">
+        <div class="form-group" [ngClass]="{ 'error' : signInForm.controls['password']?.invalid && signInForm.controls['password']?.dirty }">
           <label for="password">Password:</label>
-          <em *ngIf="signInForm.controls.password?.invalid && signInForm.controls.password?.dirty">Required</em>
+          <em *ngIf="signInForm.controls['password']?.invalid && signInForm.controls['password']?.dirty">Required</em>
           <input [(ngModel)]="credentials.password" required name="password" id="password" type="password" placeholder="Password..." />
         </div>
         <div class="form-group buttons" >
