@@ -1,3 +1,8 @@
+# What is this Repository?
+This repository is used along with the [Pluralsight Angular Best Practices course](https://app.pluralsight.com/library/courses/best-practices-angular/table-of-contents). 
+
+Note that as it is here, this repo contains a project with poor practices. As you work through the Angular Best Practices course you will refactor this project to use best practices.
+
 # Whitebeards
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
