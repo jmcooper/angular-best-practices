@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router'
 
-import { DataRepositoryService } from '../services/data-repository'
+import { DataRepositoryService } from '../services/data-repository.service'
 
 @Component({
   styles: [`
@@ -73,15 +73,15 @@ import { DataRepositoryService } from '../services/data-repository'
   `
 })
 export class SignInComponent {
-  credentials:any = {};
+  credentials: any = {};
 
-  constructor(private router:Router, private dataRepository:DataRepositoryService) { }
+  constructor(private router: Router, private dataRepository: DataRepositoryService) { }
 
-  signIn(credentials:any) {
+  signIn(credentials: any) {
     this.dataRepository.signIn(credentials)
       .subscribe(
         null,
-        (err) => {console.error(err, 'Error')},
+        (err) => { console.error(err, 'Error') },
         () => this.router.navigate(['/catalog'])
       )
   }
@@ -91,45 +91,3 @@ export class SignInComponent {
   }
 }
 
-@Component({
-  styleUrls: ['../styles/register.css'],
-  templateUrl: '../templates/register.html'
-})
-
-export class RegisterComponent {
-  registerForm: FormGroup;
-  firstName: FormControl;
-  lastName: FormControl;
-  email: FormControl;
-  password: FormControl;
-  saving:boolean=false;
-
-  constructor(private router:Router, private dataRepository:DataRepositoryService) { }
-
-  ngOnInit() {
-    this.firstName = new FormControl('', Validators.required);
-    this.lastName = new FormControl('', Validators.required);
-    this.email = new FormControl('', Validators.required);
-    this.password = new FormControl('', Validators.required);
-
-    this.registerForm = new FormGroup({
-      firstName: this.firstName,
-      lastName: this.lastName,
-      email: this.email,
-      password: this.password
-    });
-  }
-
-  registerUser(user) {
-    this.saving=true;
-    this.dataRepository.saveUser(user)
-      .subscribe(
-        null,
-        ()=>this.saving=false,
-        () => this.router.navigate(['/catalog']));
-  }
-
-  cancel() {
-    this.router.navigate(['/']);
-  }
-}

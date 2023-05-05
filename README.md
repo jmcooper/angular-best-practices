@@ -32,3 +32,19 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## Chapter 2
+
+L ocate code quickly
+I dentify code at a glance
+F lattest structure possible
+T ry to be DRY
+
+File Naming
+Let's start with this courses TypeScript file. By the name of this file, I'd kind of expect that it would contain a list of courses or something. But if we take a look, it actually contains a component. There are actually two things wrong with this file name. First of all, this component is what displays our catalog page. So, when I click on this catalog link, it's the courses component that's displayed. So, this component would be better named catalog, but even catalog.ts is still a little vague. Other than it's in the components folder, there's nothing that indicates that this file contains a component. This will become even more important later because we're going to move this file out of this folder later in the course. So, let's rename it. We'll go ahead and name this catalog.component.ts. Now it's clear that this is our catalog component. This naming style, which consists of a descriptor followed by a period and then followed by its type, is a recommended practice according to the Angular Style Guide. So, we're going to start doing this everywhere in our app. In fact, we need to do this for this component's template and CSS too. So, this CSS file should be named catalog.component.css, so you can tell by looking at it that this file contains the styles for the catalog component.
+
+Folder Structure
+- Organize by Feature Areas
+    Content related to the course catalog and content related to users.
+- App wide features can be in the root 'app' directory
+
+
